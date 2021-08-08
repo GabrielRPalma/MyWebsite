@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="{% static '/css/dashboard.css' %}" rel="stylesheet">
+    <!--<link href="{% static '/css/videoStyle.css'}" rel="stylesheet">-->
+    <link href="{% static 'img/mainLogo.png' %}" rel="icon">
+    <title>Course Dashboard</title>
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class = "sidebar">
+        <div class="sidebar-brand">
+            <h1><span class="las la-spider"></span> <span>Scraping</span></h1>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li class="list active">
+                    
+                    <a href="{% url 'appUsers:dashboard' %}" >
+                        <span class="las la-igloo"></span>
+                        <span> Informações principais </span>
+                    </a>
+                </li>                
+                <li class="list">                    
+                    <a href="{% url 'curriculum:standard_list'%}">
+                        <span class="las la-folder"></span>
+                        <span> Módulos</span>                        
+                    </a>
+                </li>
+                {% for lesson in subjects.lessons.all%}
+                    <li class="list">                    
+                        <a href="#{{lesson.name}}">
+                            <span class="lab la-youtube"></span>
+                            <span> Aula-{{lesson.position}}</span>                        
+                        </a>
+                    </li>
+                {%endfor%}            
+            </ul>
+        </div>
+    </div>
+    <div class="main-contant">
+        <header>            
+            <h1>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                    Aulas
+                </label>
+            </h1>
+            <div class="user-wrapper">
+                <div>
+                    <a href="{% url 'appUsers:user_logout'%}">Sair</a>
+                </div>          
+                <img src="{% static 'img/robots.png' %}" width="45px" height="45px" alt="">
+                <div>
+                    <h4> {{user.username}}</h4>
+                    
+                </div>
+            </div>
+        </header>
+        <style>
+            main{
+                height: 130px;
+            }
+            iframe{
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;                
+            }
+        </style>
+        {% for lesson in subjects.lessons.all %}
+            <main id="{{lesson.name}}">
+                <div class="card-tutorial">
+                    <h2> {{lesson.name}}</h2>
+                    <div class="embended-video">                                            
+                        <iframe id="ytplayer" type="text/html" height="350px"
+                        src="{{lesson.video}}"
+                        frameborder="0"></iframe>
+                    </div>
+                </div>            
+                <div class="cards">
+                    <a href="{{lesson.notes}}" target="_blank" >
+                        <div class="card-single">                    
+                            <span>Download dos códigos</span>
+                            <div>
+                                <span class="lab la-github"></span>
+                            </div>                            
+                        </div>
+                    </a> 
+                    <a href="{{lesson.ppt}}" target="_blank" >
+                        <div class = "card-single">                    
+                            <span>Download da apresentação</span>
+                            <div>
+                                <span class="las la-file-pdf"> </span>
+                            </div>
+                        </div>                
+                    </a>                                       
+                </div>            
+            </main>                                    
+        {%endfor%}
+    </div>
+    <script type="text/javascript">//add activie class in selected list item
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++){
+            list[i].onclick = function(){
+                let j = 0;
+                while(j < list.length){
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+                //console.log("Que isso meu?")
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+</html>

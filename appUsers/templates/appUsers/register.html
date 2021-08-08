@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/css/index.css' %}" rel="stylesheet">    
+    <link href="{% static '/css/join.css' %}" rel="stylesheet">
+    <link href="{% static '/css/discover.css' %}" rel="stylesheet">
+    <link href="{% static '/img/mainLogo.png' %}" rel="icon">
+    <title>Gabriel Rodrigues Palma</title>
+</head>
+<body class="full-height-grow"> <!--Add data-barba = "wrapper" for transition-->
+    <!--Barba notation for transition-->
+    <!--<ul class="transition">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>   
+        <li></li>     
+    </ul>-->
+    <!--End Barba notatio for transition-->
+    <!--<div class="wrapper">    
+        <main data-barba="container" data-barba-namespace="join">-->                    
+            <div class="mycontainer full-height-grow">            
+                <header class="main-header">
+                    <a href="/" class="brand-logo"> 
+                    <img src="{% static '/img/logo.png' %}">
+                    <div class="brand-logo-name">
+                        Gabriel Rodrigues Palma
+                    </div>
+                    </a>
+
+                    <nav class="main-nav">
+                        <ul class="nav-links">
+                            <li><a href="{% url 'appUsers:discover' %}"> Discover</a></li>
+                            <li><a href="{% url 'appUsers:user_login' %}"> Join</a></li>                        
+                        </ul>
+                    </nav>
+                </header>
+                <section class="join-main-section">
+                    {% if registered%}                    
+                    <div class="call-to-action">  
+                        <h1 class="join-text">Learn Web scraping
+                            <span class="accent-text">now</span>
+                        </h1>                      
+                        <center>
+                            <a href="{% url 'appUsers:user_login' %}" class="btn">Join now</a>
+                        </center>
+                        
+                    </div>
+                    {% else %}
+                    <h1 class="join-text">Join the
+                        <span class="accent-text">Fun.</span>
+                    </h1>
+                    <form class="join-form" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}                        
+                        <div class="input-group">
+                            {{ user_form }}
+                            {{profile_form}}
+                        </div>                        
+                        <!--<div class="input-group">
+                            <label>Email:</label>
+                            <input type="email">
+                        </div>
+                        <div class="input-group">
+                            <label for="name">Password:</label>
+                            <input type="password">
+                        </div>-->
+                        <div class="input-group">
+                            <input type="submit" value="Register" class="btn">                                
+                        </div>
+                    </form>
+                    {% endif%}
+                </section>
+            </div>
+            
+            
+            <footer class="main-footer">
+                <div class="mycontainer">
+                    <nav class="footer-nav">
+                        <ul class="nav-links">
+                            <!--<li><a href="#">About me</a></li>
+                            <li><a href="#">Blog</a></li>-->
+                        </ul>
+                    </nav>
+                    <nav class="footer-nav">
+                        <ul class="nav-links">
+                            <li>
+                                <a href="https://twitter.com/Gabriel66589450" class="social-link">
+                                <img src="{% static '/img/twitter.svg' %}" alt="">
+                                Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/gabriel.r.palma/" class="social-link">
+                                    <img src="{% static 'img/insta.svg' %}" alt="">
+                                    Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+            </footer>
+            
+        <!--</main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>-->
+
+</body>
+</html>

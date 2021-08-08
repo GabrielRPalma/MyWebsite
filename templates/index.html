@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/css/index.css' %}" rel="stylesheet">    
+    <link href="{% static '/css/join.css' %}" rel="stylesheet">
+    <link href="{% static '/css/discover.css' %}" rel="stylesheet">
+    <link href="{% static '/img/mainLogo.png' %}" rel="icon">
+    <title>Gabriel Rodrigues Palma</title>
+</head>
+<body class="full-height-grow"> <!--Add data-barba = "wrapper" for transition-->
+    <!--Barba notation for transition-->
+    <!--<ul class="transition">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        
+    </ul>-->
+    <!--End Barba notatio for transition-->
+    <!--<div class="wrapper">    
+        <main data-barba="container" data-barba-namespace="home">-->                    
+            <div class="mycontainer full-height-grow">
+
+                <header class="main-header">
+                    <a href="/" class="brand-logo"> 
+                    <img src="{% static '/img/logo.png' %}">
+                    <div class="brand-logo-name">
+                        Gabriel Rodrigues Palma
+                    </div>
+                    </a>
+
+                    <nav class="main-nav">                    
+                        <ul class="nav-links">
+                            <li><a href="{% url 'appUsers:discover' %}"> Discover</a></li>
+                            <li><a href="{% url 'appUsers:user_login' %}"> Join</a></li>                        
+                        </ul>
+                    </nav>
+                </header>
+                <section class="home-main-section">
+                    <div class="video-wrapper">
+                        <video autoplay loop muted class="brain-video">
+                            <source src="{% static '/img/brain.mp4' %}" type="video/mp4">
+                        </video>
+                    </div>            
+                    <div class="call-to-action">
+                        <h1 class="title">Welcome to my personal website!</h1>
+                        <span class="subtitle">Learn web scraping with me</span>
+                        <a href="{% url 'appUsers:user_login' %}" class="btn">Join now</a>
+                    </div>
+
+                </section>
+                <div class="home-page-circle-1"></div>
+                <div class="home-page-circle-2"></div>
+            </div>
+        <!--</main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>-->
+
+</body>
+</html>

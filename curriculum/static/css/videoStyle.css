@@ -1,0 +1,15 @@
+.embended-video {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 5rem 5rem 5rem 5rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.embended-video video {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15rem;
+}
