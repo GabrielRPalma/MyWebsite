@@ -41,7 +41,14 @@
     <div class="main-contant">
         <header>            
             <h4>
-                <label for="nav-toggle">
+                <style>
+                    @media only screen and (max-width:830px){
+                        .Main-name {
+                            display: none;
+                        }
+                        }
+                </style>
+                <label for="nav-toggle" class = "Main-name">
                     <span class="las la-bars"></span>
                     {{standards.name}}
                 </label>

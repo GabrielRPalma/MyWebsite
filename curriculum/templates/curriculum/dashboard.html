@@ -41,7 +41,14 @@
     <div class="main-contant">
         <header>            
             <h1>
-                <label for="nav-toggle">
+                <style>
+                    @media only screen and (max-width:830px){
+                        .Main-name {
+                            display: none;
+                        }
+                        }
+                </style>
+                <label for="nav-toggle" class = "Main-name">
                     <span class="las la-bars"></span>
                     Ambiente educacional
                 </label>
@@ -75,14 +82,14 @@
                 </div>-->
                 <div class="card-single">
                     <h1>{{modules}}</h1>
-                    <span>Número de módulos</span>
+                    <span>Módulos</span>
                     <div>
                         <span class="las la-folder"></span>
                     </div>                            
                 </div>
                 <div class="card-single">
                     <h1>{{lessons}}</h1>
-                    <span>Número de aulas</span>
+                    <span>Aulas</span>
                     <div>
                         <span class="las la-photo-video"></span>
                     </div>                            
