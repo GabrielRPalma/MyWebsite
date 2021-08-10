@@ -72,14 +72,21 @@
             </div>
         </header>
         <style>
-            main{
-                height: 190px;
+            .embended-video{
+                display: flex;
+                justify-content: space-between;
+                background: #fff;
+                
+                border-radius: 5px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             }
             iframe{
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;                
+                width: 100% !important;
+                height: 550px !important;
+                display: flex;
+                justify-content: space-between;
+                background: #fff;
+                padding: 1rem;
             }
         </style>
         {% for lesson in subjects.lessons.all %}
@@ -89,7 +96,7 @@
                     <div class="embended-video">                                            
                         <iframe id="ytplayer" type="text/html" height="350px"
                         src="{{lesson.video}}"
-                        frameborder="0"></iframe>
+                        frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>            
                 <div class="cards">

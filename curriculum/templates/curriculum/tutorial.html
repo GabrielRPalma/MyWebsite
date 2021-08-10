@@ -25,14 +25,14 @@
                     
                     <a href="{% url 'appUsers:dashboard' %}" >
                         <span class="las la-igloo"></span>
-                        <span> Main information </span>
+                        <span> Informações principais </span>
                     </a>
                 </li>                
                 <li class="list">
                     
                     <a href="{% url 'curriculum:standard_list'%}">
                         <span class="las la-folder"></span>
-                        <span> Modules</span>
+                        <span> Módulos</span>
                         
                     </a>
                 </li>            
@@ -66,22 +66,29 @@
             </div>
         </header>
         <style>
-            main{
-                height: 190px;
+            .embended-video{
+                display: flex;
+                justify-content: space-between;
+                background: #fff;
+                
+                border-radius: 5px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             }
             iframe{
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;                
+                width: 100% !important;
+                height: 550px !important;
+                display: flex;
+                justify-content: space-between;
+                background: #fff;
+                padding: 1rem;
             }
         </style>
         <main>
             <div class="card-tutorial">
-                <div class="embended-video">                    
-                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                <div class = "embended-video">                    
+                    <iframe id="ytplayer" type="text/html"
                     src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-                    frameborder="0"></iframe>
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>            
             <div class="cards">  
